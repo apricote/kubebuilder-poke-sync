@@ -1,0 +1,7 @@
+apiVersion: kubebuilder.meetup.apricote.de/v1
+kind: Pokemon
+metadata:
+  name: pokemon-sample
+spec:
+  # Add fields here
+  foo: bar

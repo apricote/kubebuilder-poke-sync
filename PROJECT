@@ -1,0 +1,7 @@
+version: "2"
+domain: meetup.apricote.de
+repo: github.com/apricote/kubebuilder-poke-sync
+resources:
+- group: kubebuilder
+  version: v1
+  kind: Pokemon
