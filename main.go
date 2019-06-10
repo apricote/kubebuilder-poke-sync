@@ -21,6 +21,7 @@ import (
 
 	kubebuilderv1 "github.com/apricote/kubebuilder-poke-sync/api/v1"
 	"github.com/apricote/kubebuilder-poke-sync/controllers"
+	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -36,6 +37,7 @@ var (
 func init() {
 
 	kubebuilderv1.AddToScheme(scheme)
+	corev1.AddToScheme(scheme)
 	// +kubebuilder:scaffold:scheme
 }
 
@@ -62,6 +64,7 @@ func main() {
 	err = (&controllers.PokemonReconciler{
 		Client: mgr.GetClient(),
 		Log:    ctrl.Log.WithName("controllers").WithName("Pokemon"),
+		Scheme: scheme,
 	}).SetupWithManager(mgr)
 	if err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "Pokemon")
