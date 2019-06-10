@@ -384,6 +384,13 @@ spec:
               type: string
           type: object
         spec:
+          properties:
+            configMapName:
+              description: Name of the config map that the pokemon will be saved as.
+              type: string
+            pokemonName:
+              description: Name of the Pokemon that should be created in a ConfigMap.
+              type: string
           type: object
         status:
           type: object

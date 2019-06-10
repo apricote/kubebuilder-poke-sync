@@ -24,8 +24,11 @@ import (
 
 // PokemonSpec defines the desired state of Pokemon
 type PokemonSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	// Name of the Pokemon that should be created in a ConfigMap.
+	PokemonName string `json:"pokemonName,omitempty"`
+
+	// Name of the config map that the pokemon will be saved as.
+	ConfigMapName string `json:"configMapName,omitempty"`
 }
 
 // PokemonStatus defines the observed state of Pokemon
